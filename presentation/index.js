@@ -35,7 +35,6 @@ import Interactive from "../assets/interactive";
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
 
-
 const images = {
   city: require("../assets/city.jpg"),
   kat: require("../assets/kat.png"),
@@ -45,9 +44,7 @@ const images = {
 
 preloader(images);
 
-const theme = createTheme({
-  primary: "#ff4081"
-});
+const theme = createTheme({primary: "#000000"});
 
 export default class Presentation extends React.Component {
   render() {
@@ -55,96 +52,75 @@ export default class Presentation extends React.Component {
       <Spectacle theme={theme}>
         <Deck transition={["zoom", "slide"]} transitionDuration={200}>
 
-          <Slide transition={["zoom"]} bgColor="primary" notes="1.Each successful product is predicated on a great User Experince">
-            <Heading size={1} fit caps lineHeight={1} textColor="black">
-              Defining UX Design
-            </Heading>
-          </Slide>
-
-
-          <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
-            <Appear fid="1">
-              <Heading size={1} caps fit textColor="primary">
-                Full Width
-              </Heading>
-            </Appear>
-            <Appear fid="2">
-              <Heading size={1} caps fit textColor="tertiary">
-                Adjustable Darkness
-              </Heading>
-            </Appear>
-            <Appear fid="3">
-              <Heading size={1} caps fit textColor="primary">
-                Background Imagery
-              </Heading>
-            </Appear>
-          </Slide>
           <Slide transition={["zoom", "fade"]} bgColor="primary">
-            <Heading caps fit>Flexible Layouts</Heading>
+            <Heading caps fit>Defining UX Design</Heading>
             <Layout>
               <Fill>
                 <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                  Left
+                  By: Yonas Berhe
                 </Heading>
               </Fill>
               <Fill>
                 <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                  Right
+                  1/19/2016
                 </Heading>
               </Fill>
             </Layout>
           </Slide>
-          <Slide transition={["slide"]} bgColor="black">
+
+          <Slide transition={["slide"]} bgColor="white">
             <BlockQuote>
-              <Quote>Wonderfully formatted quotes</Quote>
-              <Cite>Ken Wheeler</Cite>
+              UX design is the process used to determine the experience your user has when using your product.
             </BlockQuote>
           </Slide>
-          <Slide transition={["spin", "zoom"]} bgColor="tertiary">
-            <Heading caps fit size={1} textColor="primary">
-              Inline Markdown
+
+          <Slide transition={["zoom"]} bgColor="primary" notes="User Experience designers should always take into account information and original hypotheses">
+            <Heading size={1} fit caps lineHeight={1} textColor="white">
+              Design personas
             </Heading>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="white" notes="User Experience designers should always take into account information and original hypotheses">
+            <Markdown>
+              {`Design personas & Marketing personas are not the same`}
+            </Markdown>
+          </Slide>
+
+          <Slide transition={["spin", "zoom"]} bgColor="tertiary">
             <Markdown>
               {`
-![Markdown Logo](${images.markdown.replace("/", "")})
-
-You can write inline images, [Markdown Links](http://commonmark.org), paragraph text and most other markdown syntax
-* Lists too!
-* With ~~strikethrough~~ and _italic_
-* And lets not forget **bold**
+Marketing personas involves finding:
+* Demographic information
+* Buying motivations
+* Marketing message
+* Media habits
               `}
             </Markdown>
           </Slide>
-          <Slide transition={["slide", "spin"]} bgColor="primary">
-            <Heading caps fit size={1} textColor="tertiary">
-              Smooth
+
+          <Slide transition={["fade"]} bgImage={images.city.replace("/", "")} bgDarken={0.75} textColor="white">
+            <Heading size={1} fit caps lineHeight={1} textColor="white">
+              Design personas involves researching:
             </Heading>
-            <Heading caps fit size={1} textColor="secondary">
-              Combinable Transitions
-            </Heading>
-          </Slide>
-          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
             <List>
-              <Appear><ListItem>Inline style based theme system</ListItem></Appear>
-              <Appear><ListItem>Autofit text</ListItem></Appear>
-              <Appear><ListItem>Flexbox layout system</ListItem></Appear>
-              <Appear><ListItem>React-Router navigation</ListItem></Appear>
-              <Appear><ListItem>PDF export</ListItem></Appear>
-              <Appear><ListItem>And...</ListItem></Appear>
+              <Appear>
+                <ListItem>User Goals</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>Current Behavior</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>Pain Points</ListItem>
+              </Appear>
             </List>
           </Slide>
-          <Slide transition={["slide"]} bgColor="primary">
-            <Heading size={1} caps fit textColor="tertiary">
-              Your presentations are interactive
-            </Heading>
-            <Interactive/>
+
+          <Slide transition={["slide"]} bgColor="white">
+            <BlockQuote>
+              <Quote>A products success is directly predicated to successful user experience design.</Quote>
+            </BlockQuote>
           </Slide>
-          <Slide transition={["spin", "slide"]} bgColor="tertiary">
-            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
-              Made with love in Seattle by
-            </Heading>
-            <Link href="http://www.formidablelabs.com"><Image width="100%" src={images.logo}/></Link>
-          </Slide>
+
         </Deck>
       </Spectacle>
     );
